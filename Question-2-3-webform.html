@@ -29,16 +29,16 @@
     </head>
     <body>
         <h1>Feedback form</h1>
-        <form id="feedback-form"> <!-- Added 'for' attributes to associate label -->
+        <form id="feedback-form"> <!-- Added 'id' attribute to associate label -->
             <!-- Grouped related inputs using fieldset and legend elements for better structure -->
             <fieldset> 
                 <legend>Personal Information</legend>
-                <div class="control"> <!-- Added 'for' attributes to associate labels with inputs -->
+                <div class="control"> <!-- Added 'for' attribute to associate labels with inputs -->
                   <label for="name">Full name <span class="required">* (Required)</span></label> <!-- Identified required field in text -->
                   <input id="name" name="name" type="text" aria-required="true" /> <!-- Marked required field with aria-required for screen readers -->
                 </div>
                 <div class="control"> 
-                  <label for="biography">Biography</label> <!-- Added 'for' attributes to associate labels with inputs -->
+                  <label for="biography">Biography</label> <!-- Added 'for' attribute to associate labels with inputs -->
                   <textarea id="biography" name="biography" type="text"></textarea>
                   <span id="bio-instruction" class="sr-only">Include examples on your skills in JavaScript.</span> <!-- Added an id for inline instructions (id="bio-instruction") and used class="sr-only" to hide it visually but keep it readable by screen readers. -->
                 </div>
@@ -56,8 +56,6 @@
                         <label for="gender_female">Female</label> <!-- Added 'for' attribute -->
                     </div>
             </fieldset>
-            <!-- Added a button to clear the selection -->
-            <button type="button" id="clear-gender">Clear Selection</button>
 
             
             <div class="control">
@@ -70,13 +68,6 @@
                 <input type="submit" value="Register" />
             </div>
           </form>
-        
-          <script>
-              document.getElementById("clear-gender").addEventListener("click", function() {
-                let radios = document.getElementsByName("gender");
-                radios.forEach(radio => radio.checked = false);
-              });
-          </script>
       
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
           <script>
