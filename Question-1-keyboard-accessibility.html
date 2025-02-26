@@ -192,7 +192,29 @@ article p {
 .pull-right {
   float: right;
 }
+/* Added focus visible indicator for all interactive elements */
+a:focus,
+button:focus {
+  outline: 3px solid #006b3a;
+}
+    
+footer {
+  background-color: #333;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
 
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+    
   </style>
 </head>
 
@@ -206,22 +228,17 @@ article p {
       <nav class="menu">
         <a href="#">Home</a>
         <a href="#">Politics</a>
-        <a href="#" tabindex="-1">Business</a>
+        <a href="#">Business</a>  <!-- Improved tabindex by removing tabindex="-1" to ensure focus order is logical -->
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
-        <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
+        <a href="#" class="btn-search pull-right"> tabindex="0">
+          <img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search
+        </a>  <!-- Added tabindex="0" for better focus order -->
 
       </nav>
     </div>
   </header>
-  <div class="newsletter">
-    <div class="container">
-      <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text">
-      <button type="button" onfocus="getFocus()">Sign up</button></div>
-      
-    </div>
-  </div>
+
   <main class="container">
     <h2 class="offscreen">Top story</h2>
     <article class="main-story">
@@ -230,9 +247,8 @@ article p {
         <h3 class="headline">Study shows 9 out of 10 cats quietly judging their owners as they sleep</h3>
         <p>
           GRAND RAPIDS, MILorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">Read More</a>
-          
-        </p>
+          aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#" tabindex="0">Read More</a>
+        </p> <!-- Added tabindex="0" for better focus order -->
       </div>
     </article>
   
@@ -262,34 +278,44 @@ article p {
     </div>
     <div class="three-col">
       <div class="tier-header">
-        <h2>Recommended</h2>
+        <h2 tabindex="0">Recommended</h2> <!-- Added tabindex="0" for better focus order -->
       </div>
       <div class="columns">
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/dog.jpg?raw=true" alt="A dog at a desk looks up at a laptop and mouse" />
           <div class="info">
-            <h3 class="headline">Turn man's best friend into man's best personal assistant. <a href="#">Read More</a></h3>
+            <h3 class="headline">Turn man's best friend into man's best personal assistant. <a href="#" tabindex="0">Read More</a></h3> <!-- Added tabindex="0" for better focus order -->
           </div>
         </article>
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/coffee.jpg?raw=true" alt="A cup of coffee on a table" />
           <div class="info">
-            <h3 class="headline">San Franciscans are losing their minds over this third wave, artisanal, fair trade, handcrafted, locavore coffee. <a href="#">Read More</a></h3>
+            <h3 class="headline">San Franciscans are losing their minds over this third wave, artisanal, fair trade, handcrafted, locavore coffee. <a href="#" tabindex="0">Read More</a></h3> <!-- Added tabindex="0" for better focus order -->
         </article>
         <article>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/football.jpg?raw=true" alt="A football player hands the ball off to another player" />
           <div class="info">
-            <h3 class="headline">Sportsball team scores a touchpoint to win the big race. <a href="#">Read More</a></h3>
+            <h3 class="headline">Sportsball team scores a touchpoint to win the big race. <a href="#" tabindex="0">Read More</a></h3> <!-- Added tabindex="0" for better focus order -->
           </div>
         </article>
       </div>
     </div>
     
   </main>
-  <!--   stuff can be added here :)
+  <!-- Moved the newsletter to the bottom of the page, so its tabbing order comes last -->
+  <div class="newsletter">
+    <div class="container">
+      <h3>Like the Funion? Consider joining our newsletter!</h3>
+      <input type="text" aria-label="Newsletter email input"> <!-- Added aria-label for better screen reader accessibility -->
+      <button type="button" onfocus="getFocus()" aria-label="Sign up for newsletter">Sign up</button> <!-- Added aria-label for screen readers -->
+    </div>
+  </div>
+  
+  
   <footer>
+    <p>&copy; 2025 The Funion. All rights reserved. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </footer>
-  -->
+  
   
   <script>
     function getFocus() {
