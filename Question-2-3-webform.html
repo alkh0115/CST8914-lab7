@@ -47,15 +47,18 @@
             <!-- repurposing <div> to function as a radio group within a fieldset for better screen reader navigation -->
             <fieldset>
                 <legend>Gender</legend>
-                <div class="control">
-                    <input id="gender_male" name="gender" type="radio" value="male" aria-required="true"/>
-                    <label for="gender_male">Male</label> <!-- Added 'for' attribute -->
-                </div>
-                <div class="control">
-                    <input id="gender_female" name="gender" type="radio" value="female" aria-required="true"/>
-                    <label for="gender_female">Female</label> <!-- Added 'for' attribute -->
-                </div>
+                    <div class="control">
+                        <input id="gender_male" name="gender" type="radio" value="male" aria-required="true" />
+                        <label for="gender_male">Male</label> <!-- Added 'for' attribute -->
+                    </div>
+                    <div class="control">
+                        <input id="gender_female" name="gender" type="radio" value="female" />
+                        <label for="gender_female">Female</label> <!-- Added 'for' attribute -->
+                    </div>
             </fieldset>
+            <!-- Optional: Add a button to clear the selection -->
+            <button type="button" id="clear-gender">Clear Selection</button>
+
             
             <div class="control">
                 <input id="accept_agbs" name="accept_agbs" type="checkbox" value="1" />
